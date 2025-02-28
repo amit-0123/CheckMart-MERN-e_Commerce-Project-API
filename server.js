@@ -1,12 +1,19 @@
 import express from 'express'
 // connecting database with express
 import mongoose from 'mongoose'
+import cors from 'cors'
 import userRouter from './Routes/user.js'
 import productRouter from './Routes/product.js'
 import cartRouter from './Routes/cart.js'
 import addressRouter from './Routes/address.js'
 
-import cors from 'cors'
+
+// import messageRouter from './Routes/message.js';
+// // Add message route
+// app.use('/api/message', messageRouter);
+
+
+
 
 import paymentRouter from './Routes/payment.js'
 
@@ -22,7 +29,7 @@ app.use(cors({
 }))
 
 // home testing route
-app.get('/',(req,res)=>res.json({message:"this is home route"}));
+// app.get('/',(req,res)=>res.json({message:"this is home route"}));
 
 // user Router
 app.use('/api/user',userRouter);
@@ -35,6 +42,7 @@ app.use('/api/address',addressRouter)
 
 // payment router
 app.use('/api/payment',paymentRouter)
+
 
 mongoose.connect(
     `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.wzxda.mongodb.net/`,

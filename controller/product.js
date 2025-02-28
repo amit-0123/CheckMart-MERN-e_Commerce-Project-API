@@ -20,6 +20,8 @@ export const getProducts = async(req,res)=>{
     
 }  
 
+
+
 // find product by id
 export const  getProductById= async(req,res)=>{
     const id = req.params.id;
@@ -28,7 +30,8 @@ export const  getProductById= async(req,res)=>{
         if(!product) return res.json({message:'product not found...!'})
         res.json({message:"Specific product",product});
     } catch (error) {
-        res.json(error.message)   
+        console.log("Error retrieving product:",error);
+        res.status(500).json({message:error.message})   
      }
 }
 

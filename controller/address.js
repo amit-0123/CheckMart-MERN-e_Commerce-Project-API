@@ -3,6 +3,7 @@ import { Address } from "../model/Address.js";
 
 export const addAddress = async(req,res)=>{
 
+    // destructuring
     let {fullName,address,city,state,country,pincode,phoneNumber} = req.body;
 
     let userId=req.user;

@@ -13,7 +13,7 @@ const razorpay = new Razorpay({
    // checkout
   export const checkout = async (req, res) => {
     try {
-        const { amount, cartItems, userShipping, userId } = req.body;
+        const { amount, cartItems, userShipping, userId,} = req.body;
 
         const options = {
             amount: amount * 100, // amount in smallest currency unit
@@ -29,6 +29,7 @@ const razorpay = new Razorpay({
     }
 };
 
+
     // payment verify,save to db
    export const verify = async(req,res)=>{
       const {orderId,paymentId,signature,amount,orderItems,userId,userShipping} = req.body;
@@ -38,8 +39,17 @@ const razorpay = new Razorpay({
         payStatus:"Paid",
       });
 
+
       res.json({message:"Payment successFull...",success:true,orderConfirm});
    };
+
+
+
+
+    
+
+
+
 
 //   user specific order
   export const userOrder = async(req,res)=>{

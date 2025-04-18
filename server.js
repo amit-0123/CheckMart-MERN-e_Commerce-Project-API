@@ -20,7 +20,7 @@ import paymentRouter from './Routes/payment.js'
 
 const app = express();
 // middleware for parsing the data
-app.use(express.json());
+app.use(express.json());   
 
 app.use(cors({
     origin:true,

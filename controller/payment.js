@@ -6,8 +6,8 @@ dotenv.config()
 
 // from razorpay nodejs SDK
 const razorpay = new Razorpay({
-    key_id: "rzp_test_WfvARE4NkCAyLr",
-    key_secret: "eNgbqP37ERpEKcFkG4E6rFlu",
+    key_id: process.env.Razorpay_key_id,
+    key_secret:process.env.Razorpay_key_secret,
   });
 
    // checkout
